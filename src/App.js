@@ -5,7 +5,7 @@ import RightContent from "./components/rightContent";
 import customHook from "./components/customhook.js";
 import { BiCurrentLocation } from "react-icons/bi";
 import { AiOutlineCloud } from "react-icons/ai";
-import {ciudadesCoor} from './coordenadas'
+import { ciudadesCoor } from './coordenadas'
 
 export default function App() {
   const { formatDate, openNav, closeNav } = customHook();
@@ -17,7 +17,15 @@ export default function App() {
     lon: ciudadesCoor.guayaquil.lon
   });
   const key = process.env.REACT_APP_API_KEY;
-  console.log(ciudadesCoor);
+
+  function changeCity(city) {
+
+
+    setCoordenadas(ciudadesCoor[city])
+
+    closeNav()
+
+  }
 
   const funcionInit = () => {
     if ("geolocation" in navigator) {
@@ -26,7 +34,7 @@ export default function App() {
         const la = respuesta.coords.latitude;
         const lo = respuesta.coords.longitude;
         setCoordenadas({ lat: la, lon: lo });
-        loadApi()
+
       };
 
       const onErrorDeUbicacion = (err) => {
@@ -62,15 +70,16 @@ export default function App() {
     }
   };
 
-  async function loadApi () {
-    await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${coordenadas.lat}&lon=${coordenadas.lon}&exclude=minutely,hourly,alerts&appid=${key}&lang=en&units=metric`
-    )
-      .then((response) => response.json())
-      .then((data) => setDataApi(data));
-  }
 
   useEffect(() => {
+    async function loadApi() {
+      await fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${coordenadas.lat}&lon=${coordenadas.lon}&exclude=minutely,hourly,alerts&appid=${key}&lang=en&units=metric`
+      )
+        .then((response) => response.json())
+        .then((data) => setDataApi(data));
+    }
+
     loadApi()
   }, []);
   return (
@@ -138,9 +147,7 @@ export default function App() {
                 </div>
 
                 <div
-                  onClick={() =>
-                    setCoordenadas(ciudadesCoor.spain) + closeNav()+loadApi()
-                  }
+                  onClick={() => changeCity('spain')}
                   className="ciudad"
                 >
                   <p>España</p>
@@ -148,9 +155,7 @@ export default function App() {
                 </div>
 
                 <div
-                  onClick={() =>
-                    setCoordenadas(ciudadesCoor.londres) + closeNav()+loadApi()
-                  }
+                  onClick={() => changeCity("londres")}
                   className="ciudad"
                 >
                   <p>Londres</p>
@@ -158,9 +163,7 @@ export default function App() {
                 </div>
 
                 <div
-                  onClick={() =>
-                    setCoordenadas(ciudadesCoor.nuevaYork) + closeNav()+loadApi()
-                  }
+                  onClick={() => changeCity('nuevaYork')}
                   className="ciudad"
                 >
                   <p>Nueva York</p>
