@@ -21,6 +21,7 @@ export default function App() {
   function changeCity(city) {
 
     setCoordenadas(ciudadesCoor[city])
+    console.log(ciudadesCoor[city])
     closeNav()
 
   }
@@ -79,7 +80,7 @@ export default function App() {
     }
 
     loadApi()
-  }, []);
+  }, [coordenadas]);
   return (
     <div className="App">
       {dataApi !== "" ? (
