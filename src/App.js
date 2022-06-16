@@ -20,9 +20,7 @@ export default function App() {
 
   function changeCity(city) {
 
-
     setCoordenadas(ciudadesCoor[city])
-
     closeNav()
 
   }
