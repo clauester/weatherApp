@@ -8,6 +8,7 @@
   max-width: 100%;
   overflow: hidden;
 }
+
 body {
   margin: 0;
   max-height: 100vh;
@@ -20,22 +21,26 @@ body {
   text-align: center;
   align-items: flex-end;
 }
+
 .leftContent {
   justify-content: center;
   text-align: center;
   align-items: flex-end;
   height: 40%;
 }
+
 .fecha {
-  font-size: 2vh;
+  font-size: 1vw;
   padding-bottom: 5%;
 }
+
 .ciudad1 {
-  font-size: 2vh;
+  font-size: 1vw;
 }
+
 .clima {
-  padding: 10% 0;
-  font-size: 5vh;
+  padding: 5% 0;
+  font-size: 2.5vw;
 }
 
 .rightSide {
@@ -52,17 +57,21 @@ body {
 .botones {
   display: flex;
   justify-content: right;
-  height: 3vh;
-  margin-top: 1vw;
+  height: 3vw;
+  align-items: center;
+  margin-top: 2%;
+  
 }
+
 .encabezado {
-  margin-top: 2vh;
+  padding-top: 2vh;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   font-size: 1vw;
 }
+
 .contenido {
   height: 45%;
   display: flex;
@@ -70,46 +79,59 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 3vw;
+ 
 }
+
 .medida {
   font-size: 75%;
-  margin-left: 5px;
+  
   width: auto;
   height: auto;
+  margin: 0px;
+  margin-left: 5px;
 }
+
 .cuadro1 {
   background: #1d213a;
   height: auto;
   width: auto;
-  max-height: 11vw;
+  align-items: center;
+  min-height: 8vw;
+
 }
+
 .cuadro2 {
   background: #1d213a;
   width: 8vw;
   height: auto;
 }
+
 .encabezadoA {
   text-align: center;
-  margin-top: 1vw;
-  font-size: 1vw;
+  margin-top: 10%;
+  word-break: break-word;
+  font-size: 80%;
 }
+
 .contenidoA {
   text-align: center;
-  font-size: 0.9vw;
+  width:100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: 0vw 1vw;
+  justify-content: center;
+  
+  
   margin-bottom: 1vw;
 }
+
 .image {
   height: auto;
-  width: 8vw;
+  width: 100%;
 }
 
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 28.5vw;
   display: flex;
   position: fixed;
   justify-content: center;
@@ -120,7 +142,20 @@ body {
   overflow-x: hidden;
   transition: 0.8s;
 }
-
+.close{
+  width: 0;
+  height: 100%;
+ 
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: #1d213a;
+  overflow-x: hidden;
+  transition: 0.8s;
+}
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -130,23 +165,33 @@ body {
 
   cursor: pointer;
 }
+
 .botonesIzquierda {
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
-  height: 8%;
+  height: 8vh;
   margin: 0 3vw;
-  margin-top: 1vw;
+  margin-top: 1vh;
+
 }
+
 .temp {
   justify-content: center;
 }
+.tempMin{
+  color: gray ;
+  font-size:70%;
+  margin-left: 10%;
+}
+.tempMax{
+font-size: 100%;
+}
 .imageleft {
-  height: 50%;
-
+  height: 24vw;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2%;
+
   overflow: hidden;
   width: 100%;
 }
@@ -160,32 +205,39 @@ body {
   margin-top: 1vw;
   margin-bottom: 1vw;
   align-items: center;
+  text-align: left;
+  font-size: 50%;
 }
+
 
 .ciudad:hover {
   border: 2px solid rgb(107, 101, 101);
 }
+
 .ciudad p {
-  font-size: 1.5vw;
-  margin: 1.5vw;
+  font-size: 170%;
+ 
 }
+
 .busqueda {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 3vw;
+  margin-bottom: 2vw;
 }
+
 .searchInput {
   width: 70%;
   margin-right: 5%;
   height: 6vh;
   background: none;
   border: 1px solid rgb(107, 101, 101);
-  font-size: 1.3vw;
+  font-size: 70%;
 }
+
 .busqueda button {
   width: 25%;
-  font-size: 5vw;
+  
 }
 
 .sideContent {
@@ -195,6 +247,7 @@ body {
   display: block;
   height: 80vh;
 }
+
 button {
   cursor: pointer;
 }
@@ -214,10 +267,12 @@ button {
   0% {
     transform: translateX(500%);
   }
+
   100% {
     transform: translateX(-120%);
   }
 }
+
 .nube2 {
   font-size: 7vw;
   height: 6vw;
@@ -226,13 +281,150 @@ button {
   animation-name: movimiento2;
   animation-duration: 5s;
   animation-iteration-count: infinite;
-  height: 10vw;
+
+  
 }
+
 @keyframes movimiento2 {
   0% {
     transform: translateX(-120%);
   }
+
   100% {
     transform: translateX(500%);
   }
+}
+
+.btnplaces {
+  width: 11vw;
+  height: 2.8vw;
+  font-size: 1vw;
+  border: none;
+  background: gray;
+  color: white;
+}
+
+.btnsimbolo {
+  border-radius: 50%;
+  height: 3vw;
+  width: 3vw;
+  border: none;
+  background: gray;
+  color: white;
+  align-self: center;
+  justify-content: center;
+  padding: 0px;
+}
+
+.image1 {
+  height: 15vw;
+  
+  
+}
+
+.locationLogo {
+  align-self: center;
+  height: 60%;
+  width: 60%;
+}
+
+.leftTemp {
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.leftTemp p{
+  font-size: 2vw;
+}
+
+@media (max-width:450px) {
+  .App {
+    display: grid;
+    height: auto;
+  }
+
+  .leftSide {
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+  }
+
+  .imageleft {
+    height: 40vh;
+    align-items: center;
+    display: flex;
+  }
+
+  .btnplaces {
+    height: 8vw;
+    width: 35vw;
+    font-size: 3vw;
+  }
+
+  .btnsimbolo {
+    height: 10vw;
+    width: 10vw;
+  }
+
+  .locationLogo {
+
+    height: 6vw;
+    width: 6vw;
+  }
+
+  .botonesIzquierda {
+    margin: 0 4vw;
+    margin-top: 3vh;
+  }
+  .leftTemp{
+    font-size: 22vw;
+    height: auto;
+    margin-bottom: 5%;
+    
+  }
+div.leftTemp p{
+  font-size: 8vw;
+}
+  .image1 {
+    height: 45vw;
+    
+  }
+  .clima{
+    font-size: 180%;
+    padding-top: 20px;
+  }
+  .fecha, .ciudad1{
+    font-size: large;
+  }
+  .sidenav{
+    width: 100vw;
+  }
+  .rightSide{
+    width: 100%;
+    height: 170vh;
+    align-items: flex-start;
+  }
+  .rightContent{
+    width: 100%;
+    height: auto;
+  }
+ 
+  .cuadro2{
+    width: 100%;
+  }
+  .cuadro1{
+    max-height: 80%;
+  }
+  .contenido{
+    font-size: 9vw;
+    font-weight: bold;
+  }
+  .encabezado{
+    font-size: 4vw;
+  }
+  .botones{
+    height: 8vh;
+  }
+  
 }

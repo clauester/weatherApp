@@ -25,20 +25,20 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
     <div className="rightSide">
       <div className="rightContent">
         <div className="botones">
-          <span
+          <button
             onClick={() => prueba("celcius")}
             className="dot"
             style={tipoGrado === "celcius" ? { background: "gray" } : null}
           >
             °C
-          </span>
-          <span
+          </button>
+          <button
             onClick={() => prueba("fahrenheit")}
             className="dot"
             style={tipoGrado === "fahrenheit" ? { background: "gray" } : null}
           >
             °F
-          </span>
+          </button>
         </div>
         <div className="arriba">
           {dataApi.daily.map(
@@ -59,7 +59,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
                       {tipoGrado === "celcius" ? "°C" : "°F"}
                     </div>
                     <div
-                      style={{ color: "gray", fontSize: "0.8vw" }}
+                      
                       className="tempMin"
                     >
                       {redondear(cambioFar(value.temp.min))}
@@ -70,7 +70,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               )
           )}
         </div>
-        <div style={{ fontSize: "2vw" }}>Today's Highlights </div>
+        <div style={{ fontSize: "3vh", marginTop: '6vh' }}>Today's Highlights </div>
 
         <div className="abajo">
           <div className="cuadro1">
@@ -79,9 +79,10 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               {dataApi.current.wind_speed}
               <p className="medida">m/s</p>
             </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "4vw" }}>
               <WiWindDeg
-                style={{ fontSize: "3vw", transform: "rotate(220deg)" }}
+                className='wind'
+              
               />
             </div>
           </div>
@@ -92,14 +93,11 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               <p className="medida"> %</p>
             </div>
             <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
+            className="progreso1"
             >
               <progress
-                style={{ width: "10vw", height: "1.5vw" }}
+              className='progreso'
+                
                 max="100"
                 value={dataApi.current.humidity}
               ></progress>
@@ -127,7 +125,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
             display: "flex",
             marginTop: "0.5vw",
             textAlign: "center",
-            fontSize: "1vw"
+            fontSize: "2vh"
           }}
         >
           Created by Miguel davila - devChallenges.io

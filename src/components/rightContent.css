@@ -1,9 +1,9 @@
 .dot {
-    height: 2vw;
-    width: 2vw;
+    height: 4vh;
+    width: 4vh;
     background-color: #bbb;
     border-radius: 50%;
-    font-size: 1vw;
+    border-style: none;
     cursor: pointer;
   
     display: flex;
@@ -15,7 +15,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 2.5vw;
-    margin: 4vh 0;
+    
     width: 100%;
   }
   
@@ -34,4 +34,41 @@
     width: 70%;
     height: 100vh;
   }
-  
+  .wind{
+    font-size: 3vw;
+    transform: rotate(220deg);
+  }
+  .progreso{
+    width: 10vw ;
+    height: 1.5vw;
+  }
+  .progreso1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    
+  }
+  @media (max-width:450px) {
+    .arriba{
+      grid-template-columns: repeat(2, 1fr);
+      height: 80vh;
+    }
+    .abajo{
+      height: 80vh;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0px;
+      
+    }
+    .wind{
+      font-size: 9vw;
+    }
+    .progreso{
+      width: 20vw ;
+      height: 2.5vw;
+    }
+    .progreso1{
+      font-size: 5vw;
+      padding-bottom: 5vw;
+    }
+  }

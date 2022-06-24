@@ -10,34 +10,34 @@ import { ciudadesCoor } from './coordenadas'
 export default function App() {
   const { formatDate, openNav, closeNav } = customHook();
   const [tipoGrado, setTipoGrado] = useState("celcius");
-
+const [open, setOpen] = useState('close')
   const [dataApi, setDataApi] = useState("");
   const [coordenadas, setCoordenadas] = useState({
     lat: ciudadesCoor.guayaquil.lat,
     lon: ciudadesCoor.guayaquil.lon
   });
   const key = process.env.REACT_APP_API_KEY;
-
+console.log(open)
   function changeCity(city) {
 
     setCoordenadas(ciudadesCoor[city])
     console.log(ciudadesCoor[city])
-    closeNav()
+    setOpen('close')
 
   }
 
-  const funcionInit = () => {
+  const funcionInit = async() => {
     if ("geolocation" in navigator) {
       const val = (respuesta) => {
         console.log(respuesta);
         const la = respuesta.coords.latitude;
         const lo = respuesta.coords.longitude;
-        setCoordenadas({ lat: la, lon: lo });
+      setCoordenadas({ lat: la, lon: lo });
 
       };
 
       const onErrorDeUbicacion = (err) => {
-        alert("Error obteniendo ubicación: ");
+        alert("Error obteniendo ubicación: ",err);
       };
 
       const opcionesDeSolicitud = {
@@ -46,7 +46,7 @@ export default function App() {
         timeout: 1000
       };
 
-      navigator.geolocation.getCurrentPosition(
+     await navigator.geolocation.getCurrentPosition(
         val,
         onErrorDeUbicacion,
         opcionesDeSolicitud
@@ -88,42 +88,26 @@ export default function App() {
           <div className="leftSide">
             <div className="botonesIzquierda">
               <button
-                style={{
-                  width: "11vw",
-                  height: "2.8vw",
-                  fontSize: "1vw",
-                  border: "none",
-                  background: "gray",
-                  color: "white"
-                }}
-                onClick={openNav}
+               
+                className="btnplaces"
+                onClick={() => setOpen('sidenav')}
               >
                 Search for places
               </button>
               <button
+              className="btnsimbolo"
                 onClick={() => funcionInit()}
-                style={{
-                  borderRadius: "50%",
-                  height: "2.8vw",
-                  width: "2.8vw",
-                  border: "none",
-                  background: "gray",
-                  color: "white"
-                }}
+                
               >
                 <BiCurrentLocation
-                  style={{
-                    alignSelf: "center",
-                    height: "1.5vw",
-                    width: "1.5vw"
-                  }}
+                 className='locationLogo'
                 />
               </button>
             </div>
-            <div id="mySidenav" className="sidenav">
+            <div id="mySidenav" className={open}>
               <div className="sideContent">
                 <div style={{ textAlign: "end" }}>
-                  <span className="closebtn" onClick={closeNav}>
+                  <span className="closebtn" onClick={() => setOpen('close')} >
                     &times;
                   </span>
                 </div>
@@ -135,7 +119,7 @@ export default function App() {
                   />
                   <button
                     style={{
-                      fontSize: "1vw",
+                      fontSize: "80%",
                       background: "#463BF5",
                       border: "none",
                       color: "white"
@@ -149,57 +133,51 @@ export default function App() {
                   onClick={() => changeCity('spain')}
                   className="ciudad"
                 >
-                  <p>España</p>
-                  <p> {">"} </p>
+                  <p className="p1">España</p>
+                  <p className="p2" > {">"} </p>
                 </div>
 
                 <div
                   onClick={() => changeCity("londres")}
                   className="ciudad"
                 >
-                  <p>Londres</p>
-                  <p> {">"} </p>
+                  <p className="p1">Londres</p>
+                  <p className="p2" > {">"} </p>
                 </div>
 
                 <div
                   onClick={() => changeCity('nuevaYork')}
                   className="ciudad"
                 >
-                  <p>Nueva York</p>
-                  <p> {">"} </p>
+                  <p className="p1" >Nueva York</p>
+                  <p className="p2" > {">"} </p>
                 </div>
               </div>
             </div>
 
             <div className="imageleft">
-              <div className="nube">
+              {/* <div className="nube">
                 <AiOutlineCloud />
-              </div>
+              </div> */}
               <img
                 src={`http://openweathermap.org/img/wn/${dataApi.current.weather[0].icon}@2x.png`}
-                style={{ height: "40%", position: "relative" }}
+                
+                className="image1"
                 alt="img"
               />
-              <div className="nube2">
-                <AiOutlineCloud />
-              </div>
+              {/* <div className="nube2">
+                <AiOutlineCloud style={{}} />
+              </div> */}
             </div>
             <div className="leftContent">
               <div className="temp">
                 <div
-                  style={{
-                    fontSize: "4vw",
-                    display: "flex",
-                    justifyContent: "center"
-                  }}
+                className="leftTemp"
+                 
                 >
                   {Math.round(cambioFar(dataApi.current.temp))}
                   <p
-                    style={{
-                      fontSize: "3vw",
-                      margin: "0px",
-                      alignSelf: "center"
-                    }}
+                   
                   >
                     {tipoGrado === "celcius" ? "°C" : "°F"}
                   </p>
