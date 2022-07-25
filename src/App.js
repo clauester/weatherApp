@@ -58,8 +58,8 @@ export default function App() {
 
   const handleChange = (e) => {
 
-  
-      const city = Cities.filter(value => value.country.toLowerCase().startsWith(e))
+  const a = e.toLowerCase()
+      const city = Cities.filter(value => value.country.toLowerCase().startsWith(a))
       setCiudades(city)
    
   }

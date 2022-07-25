@@ -71,4 +71,8 @@
       font-size: 5vw;
       padding-bottom: 5vw;
     }
+    .dot{
+      height: 6vw;
+    width: 6vw;
+    }
   }

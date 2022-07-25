@@ -418,6 +418,10 @@ div.leftTemp p{
  
   .cuadro2{
     width: 100%;
+    height: auto;
+    display: grid;
+    
+    align-items: flex-end;
     
   }
   .cuadro1{
@@ -433,5 +437,24 @@ div.leftTemp p{
   .botones{
     height: 8vh;
   }
-  
+  .encabezadoA{
+    font-size: 3vw;
+    align-self: center;
+    
+
+    margin: 1vw 0 0 0;
+  }
+  .contenidoA{
+   
+    align-self: center;
+  }
+  .image{
+    align-self: center;
+  }
+  .tempMax{
+    font-size: 3.5vw;
+  }
+  .tempMin{
+    font-size: 2.5vw;
+    align-self: center;  }
 }
