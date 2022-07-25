@@ -13,6 +13,10 @@ body {
   margin: 0;
   max-height: 100vh;
 }
+.p1{
+  font-size: 1vw;
+  color: white;
+}
 
 .leftSide {
   width: 30%;
@@ -104,20 +108,21 @@ body {
   background: #1d213a;
   width: 8vw;
   height: auto;
+  align-items: flex-end;
 }
 
 .encabezadoA {
   text-align: center;
   margin-top: 10%;
   word-break: break-word;
-  font-size: 80%;
+  font-size: 1.2vw;
 }
 
 .contenidoA {
   text-align: center;
   width:100%;
   display: flex;
-  align-items: center;
+  align-content: flex-end;
   justify-content: center;
   
   
@@ -181,14 +186,15 @@ body {
 }
 .tempMin{
   color: gray ;
-  font-size:70%;
+  font-size:0.8vw;
   margin-left: 10%;
 }
 .tempMax{
-font-size: 100%;
+font-size: 1vw;
 }
 .imageleft {
   height: 24vw;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -412,6 +418,7 @@ div.leftTemp p{
  
   .cuadro2{
     width: 100%;
+    
   }
   .cuadro1{
     max-height: 80%;

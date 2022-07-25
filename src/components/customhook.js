@@ -2,7 +2,7 @@
 const useHook = () => {
     let date = new Date();
   
-    const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Friday", "Sat"];
+    const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" ];
   
     const months = [
       "Jan",

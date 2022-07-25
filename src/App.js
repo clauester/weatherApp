@@ -4,40 +4,38 @@ import React, { useEffect, useState } from "react";
 import RightContent from "./components/rightContent";
 import customHook from "./components/customhook.js";
 import { BiCurrentLocation } from "react-icons/bi";
-import { AiOutlineCloud } from "react-icons/ai";
+import Cities from "./countryCoords.json"
 import { ciudadesCoor } from './coordenadas'
 
 export default function App() {
-  const { formatDate, openNav, closeNav } = customHook();
+  const { formatDate } = customHook();
+  const [ciudades, setCiudades] = useState([])
   const [tipoGrado, setTipoGrado] = useState("celcius");
-const [open, setOpen] = useState('close')
+  const [open, setOpen] = useState('close')
   const [dataApi, setDataApi] = useState("");
   const [coordenadas, setCoordenadas] = useState({
     lat: ciudadesCoor.guayaquil.lat,
     lon: ciudadesCoor.guayaquil.lon
   });
   const key = process.env.REACT_APP_API_KEY;
-console.log(open)
+
   function changeCity(city) {
-
-    setCoordenadas(ciudadesCoor[city])
-    console.log(ciudadesCoor[city])
+    setCoordenadas(city)
     setOpen('close')
-
   }
 
-  const funcionInit = async() => {
+  const funcionInit = async () => {
     if ("geolocation" in navigator) {
       const val = (respuesta) => {
-        console.log(respuesta);
+
         const la = respuesta.coords.latitude;
         const lo = respuesta.coords.longitude;
-      setCoordenadas({ lat: la, lon: lo });
+        setCoordenadas({ lat: la, lon: lo });
 
       };
 
       const onErrorDeUbicacion = (err) => {
-        alert("Error obteniendo ubicación: ",err);
+        alert("Error obteniendo ubicación: ", err);
       };
 
       const opcionesDeSolicitud = {
@@ -46,7 +44,7 @@ console.log(open)
         timeout: 1000
       };
 
-     await navigator.geolocation.getCurrentPosition(
+      await navigator.geolocation.getCurrentPosition(
         val,
         onErrorDeUbicacion,
         opcionesDeSolicitud
@@ -58,6 +56,13 @@ console.log(open)
     }
   };
 
+  const handleChange = (e) => {
+
+  
+      const city = Cities.filter(value => value.country.toLowerCase().startsWith(e))
+      setCiudades(city)
+   
+  }
   const prueba = (respuesta) => {
     setTipoGrado(respuesta);
   };
@@ -88,19 +93,19 @@ console.log(open)
           <div className="leftSide">
             <div className="botonesIzquierda">
               <button
-               
+
                 className="btnplaces"
                 onClick={() => setOpen('sidenav')}
               >
                 Search for places
               </button>
               <button
-              className="btnsimbolo"
+                className="btnsimbolo"
                 onClick={() => funcionInit()}
-                
+
               >
                 <BiCurrentLocation
-                 className='locationLogo'
+                  className='locationLogo'
                 />
               </button>
             </div>
@@ -116,6 +121,7 @@ console.log(open)
                     placeholder="  search location"
                     className="searchInput"
                     style={{ color: "white" }}
+                    onChange={e => handleChange(e.target.value)}
                   />
                   <button
                     style={{
@@ -128,56 +134,42 @@ console.log(open)
                     Search
                   </button>
                 </div>
+                {
+                  ciudades.map((value, index) => (
+                    <div
+                      onClick={() => changeCity({lat: value.latitude, lon: value.longitude})}
+                      key={index}
+                      className="ciudad"
+                    >
+                      <p className="p1">{value.country}</p>
+                      <p className="p2" > {">"} </p>
+                    </div>
 
-                <div
-                  onClick={() => changeCity('spain')}
-                  className="ciudad"
-                >
-                  <p className="p1">España</p>
-                  <p className="p2" > {">"} </p>
-                </div>
-
-                <div
-                  onClick={() => changeCity("londres")}
-                  className="ciudad"
-                >
-                  <p className="p1">Londres</p>
-                  <p className="p2" > {">"} </p>
-                </div>
-
-                <div
-                  onClick={() => changeCity('nuevaYork')}
-                  className="ciudad"
-                >
-                  <p className="p1" >Nueva York</p>
-                  <p className="p2" > {">"} </p>
-                </div>
+                  ))
+                }
+                
               </div>
             </div>
 
             <div className="imageleft">
-              {/* <div className="nube">
-                <AiOutlineCloud />
-              </div> */}
+
               <img
                 src={`http://openweathermap.org/img/wn/${dataApi.current.weather[0].icon}@2x.png`}
-                
+
                 className="image1"
                 alt="img"
               />
-              {/* <div className="nube2">
-                <AiOutlineCloud style={{}} />
-              </div> */}
+
             </div>
             <div className="leftContent">
               <div className="temp">
                 <div
-                className="leftTemp"
-                 
+                  className="leftTemp"
+
                 >
                   {Math.round(cambioFar(dataApi.current.temp))}
                   <p
-                   
+
                   >
                     {tipoGrado === "celcius" ? "°C" : "°F"}
                   </p>
