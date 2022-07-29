@@ -70,7 +70,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               )
           )}
         </div>
-        <div style={{ fontSize: "2vw", marginTop: '2.5vw' }}>Today's Highlights </div>
+        <div style={{ fontSize: "150%", marginTop: '2.5vw' }}>Today's Highlights </div>
 
         <div className="abajo">
           <div className="cuadro1">
@@ -128,7 +128,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
             display: "flex",
             height: "3vw",
             textAlign: "center",
-            fontSize: "1vw"
+            fontSize: "80%"
           }}
         >
           Created by Miguel davila - devChallenges.io
