@@ -220,9 +220,11 @@ font-size: 1vw;
   border: 2px solid rgb(107, 101, 101);
 }
 
+
 .ciudad p {
-  font-size: 170%;
- 
+  font-size: 1vw;
+ margin-left: 1vw;
+ margin-right: 1vw;
 }
 
 .busqueda {
@@ -399,6 +401,9 @@ div.leftTemp p{
   .clima{
     font-size: 180%;
     padding-top: 20px;
+  }
+  .ciudad p{
+    font-size: 4vw;
   }
   .fecha, .ciudad1{
     font-size: large;

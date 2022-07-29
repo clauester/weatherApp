@@ -93,7 +93,7 @@ export default function App() {
           <div className="leftSide">
             <div className="botonesIzquierda">
               <button
-
+               
                 className="btnplaces"
                 onClick={() => setOpen('sidenav')}
               >
@@ -125,7 +125,7 @@ export default function App() {
                   />
                   <button
                     style={{
-                      fontSize: "80%",
+                      fontSize: "1vw",
                       background: "#463BF5",
                       border: "none",
                       color: "white"
