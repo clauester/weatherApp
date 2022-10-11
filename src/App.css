@@ -1,7 +1,7 @@
 .App {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: #100e1c;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   color: white;
@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  max-height: 100vh;
+  min-height: 100vh;
 }
 .p1{
   font-size: 1vw;
@@ -34,17 +34,18 @@ body {
 }
 
 .fecha {
-  font-size: 1vw;
+  font-size: 0.9rem;
   padding-bottom: 5%;
 }
 
 .ciudad1 {
-  font-size: 1vw;
+  font-size: 0.9rem;
 }
 
 .clima {
   padding: 5% 0;
-  font-size: 2.5vw;
+  margin: 0 1rem;
+  font-size: 2rem;
 }
 
 .rightSide {
@@ -55,7 +56,7 @@ body {
 
   height: 100vh;
   width: 75%;
-  margin-bottom: 20vh;
+  
 }
 
 .botones {
@@ -73,16 +74,17 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .contenido {
-  height: 45%;
+ 
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   font-size: 3vw;
+  padding: 1rem 0;
  
 }
 
@@ -100,13 +102,12 @@ body {
   height: auto;
   width: auto;
   align-items: center;
-  min-height: 8vw;
+  min-height: 10vw;
 
 }
 
 .cuadro2 {
   background: #1d213a;
-  width: 8vw;
   height: auto;
   align-items: flex-end;
 }
@@ -115,7 +116,7 @@ body {
   text-align: center;
   margin-top: 10%;
   word-break: break-word;
-  font-size: 1.2vw;
+  font-size: 0.8rem;
 }
 
 .contenidoA {
@@ -126,11 +127,12 @@ body {
   justify-content: center;
   
   
-  margin-bottom: 1vw;
+  margin-bottom: 0.5rem;
 }
 
 .image {
-  height: auto;
+  max-height: auto;
+  
   width: 100%;
 }
 
@@ -186,20 +188,20 @@ body {
 }
 .tempMin{
   color: gray ;
-  font-size:0.8vw;
+  font-size:0.75rem;
   margin-left: 10%;
 }
 .tempMax{
-font-size: 1vw;
+font-size: 0.9rem;
 }
 .imageleft {
   height: 24vw;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  margin: 0 2rem;
   overflow: hidden;
-  width: 100%;
+
 }
 
 .ciudad {
@@ -231,13 +233,14 @@ font-size: 1vw;
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 2vw;
+  
+  height: 2rem;
 }
 
 .searchInput {
   width: 70%;
   margin-right: 5%;
-  height: 6vh;
+  height: 2rem;
   background: none;
   border: 1px solid rgb(107, 101, 101);
   font-size: 70%;
@@ -325,9 +328,8 @@ button {
 }
 
 .image1 {
-  height: 15vw;
-  
-  
+  width: 15rem;
+ 
 }
 
 .locationLogo {
@@ -346,7 +348,7 @@ div.leftTemp p{
   font-size: 2vw;
 }
 
-@media (max-width:450px) {
+@media (max-width:590px) {
   .App {
     display: grid;
     height: auto;
@@ -395,7 +397,7 @@ div.leftTemp p{
   font-size: 8vw;
 }
   .image1 {
-    height: 45vw;
+    height: auto;
     
   }
   .clima{
@@ -414,7 +416,7 @@ div.leftTemp p{
   }
   .rightSide{
     width: 100%;
-    height: 170vh;
+    height: auto;
     align-items: flex-start;
   }
   .rightContent{
@@ -425,8 +427,8 @@ div.leftTemp p{
   .cuadro2{
     width: 100%;
     height: auto;
-    display: grid;
     
+    justify-content: center;
     align-items: flex-end;
     
   }
@@ -464,3 +466,4 @@ div.leftTemp p{
     font-size: 2.5vw;
     align-self: center;  }
 }
+

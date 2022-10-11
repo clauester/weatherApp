@@ -70,7 +70,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               )
           )}
         </div>
-        <div style={{ fontSize: "150%", marginTop: '2.5vw' }}>Today's Highlights </div>
+        <div className="highlights"><h4>Today's Highlights</h4> </div>
 
         <div className="abajo">
           <div className="cuadro1">
@@ -79,7 +79,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
               {dataApi.current.wind_speed}
               <p className="medida">m/s</p>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3vw" }}>
+            <div className="progreso1">
               <WiWindDeg
                 className='wind'
               
@@ -121,7 +121,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
         </div>
         <footer>
 
-        <div
+        {/* <div
           style={{
             justifyContent: "center",
             alignItems: "center",
@@ -132,7 +132,7 @@ const RightContent = ({ dataApi, prueba, tipoGrado }) => {
           }}
         >
           Created by Miguel davila - devChallenges.io
-        </div>
+        </div> */}
 
         </footer>
       </div>

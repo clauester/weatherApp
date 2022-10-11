@@ -125,7 +125,7 @@ export default function App() {
                   />
                   <button
                     style={{
-                      fontSize: "1vw",
+                      fontSize: "0.5rem",
                       background: "#463BF5",
                       border: "none",
                       color: "white"

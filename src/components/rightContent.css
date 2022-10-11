@@ -13,17 +13,20 @@
   }
   .arriba {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 2.5vw;
-    
+    gap: 1rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+   padding-top: 1rem;
     width: 100%;
+  
+    
   }
   
   .abajo {
     margin-top: 2vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 4vh;
+    grid-gap: 1rem;
   
     justify-content: center;
   
@@ -32,10 +35,10 @@
   }
   .rightContent {
     width: 70%;
-    height: 100vh;
+    height: auto;
   }
   .wind{
-    font-size: 3vw;
+    font-size: 2rem;
     transform: rotate(220deg);
   }
   .progreso{
@@ -47,9 +50,18 @@
     justify-content: center;
     align-items: center;
     height: 3vh;
+    padding-bottom: 1rem;
+  
+   
     
   }
-  @media (max-width:450px) {
+
+  .highlights{
+    padding-top: 1rem;
+ 
+   
+  }
+  @media (max-width:590px) {
     .arriba{
       grid-template-columns: repeat(2, 1fr);
       height: 80vh;
@@ -75,4 +87,16 @@
       height: 6vw;
     width: 6vw;
     }
+  }
+  @media (max-width: 1250px) {
+    .arriba{
+      grid-template-columns: repeat(3, minmax(7rem, 1fr));
+    }
+  
+  }
+  @media (max-width: 724px){
+    .arriba{
+      grid-template-columns: repeat(2, minmax(7rem, 1fr));
+    }
+  
   }
